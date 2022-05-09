@@ -6,14 +6,12 @@ class WordListMobX = WordListMobXBase with _$WordListMobX;
 
 abstract class WordListMobXBase with Store {
   @observable
-  List<String> _words = [];
-
-  @computed
-  List<String> get words => _words;
+  List<String> words = [];
 
   @action
   void addWord(String word) {
     print('word $word');
-    words.add(word);
+
+    words = words..add(word);
   }
 }
