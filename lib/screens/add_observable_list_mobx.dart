@@ -3,12 +3,13 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:state_management_rxdart/add_list/word_list_mobx.dart';
 import 'package:state_management_rxdart/add_list/word_observable_list_mobx.dart';
+import 'package:state_management_rxdart/add_list/word_observable_list_no_code_gen_mobx.dart';
 
 class AddObservableListMobX extends StatelessWidget {
   AddObservableListMobX({Key? key, title}) : super(key: key);
 
   final controller = TextEditingController();
-  final wordListMobX = WordObservableListMobX();
+  final wordListMobX = WordObservableListNoCodeGenMobX();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class AddObservableListMobX extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          wordListMobX.addWord(controller.text);
+          wordListMobX.addWord([controller.text]);
           print('controller ${controller.text}');
         },
         child: Icon(Icons.add),
